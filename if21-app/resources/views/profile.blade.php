@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Profile</h1>
-    <p>Ini halaman Profile</p>
+    <p>Ini halaman profil</p>
+    
 </body>
 </html>
