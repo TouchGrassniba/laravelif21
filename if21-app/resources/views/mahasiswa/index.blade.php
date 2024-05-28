@@ -16,13 +16,11 @@
             <thead>
               <tr>
                 <th>NPM</th>
-                <th>Nama Mahasiswa</th>
+                <th>Nama Mahasiswa</th> 
                 <th>Tempat Lahir</th>
-                <th>Tanggal Lahit</th>
-                <th>Alamat</th>
-                <th>Kota</th>
+                <th>Tanggal Lahir</th>
                 <th>Program Studi</th>
-                <th>Foto</th>
+                <th>Kota</th>
               </tr>
             </thead>
             <tbody>
@@ -30,8 +28,11 @@
         <tr>
           <td>{{  $item['npm'] }} </td>
           <td>{{ $item['nama'] }}</td>
-          <td>{{  $item['prodi'] ['program_studi'] }} </td>
-          <td>{{ $item['kota'] ['nama_kota'] }}</td>
+          <td>{{ $item['tempat_lahir'] }}</td>
+          <td>{{ $item['tanggal_lahir'] }}</td>
+          <td>{{  $item['prodi']['nama'] }} </td>
+          <td>{{ $item['kota']['nama'] }}</td>
+          <td><a href="{{ route('mahasiswa.show', $item['id']) }}" class="btn btn-sm btn-info btn-rounded">Show</a></td>
         </tr>
 
       @endforeach

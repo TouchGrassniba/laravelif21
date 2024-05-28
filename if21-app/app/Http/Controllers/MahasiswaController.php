@@ -36,14 +36,14 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $val = $request->validate([
-            'npm' => 'required|unique:mahasiswa',
-            'nama' => 'required|unique:mahasiswa',
-            'tempat_lahir' => 'required|unique:mahasiswa',
-            'tanggal_lahir' => 'required|unique:mahasiswa',
-            'alamat' => 'required|unique:mahasiswa',
+            'npm' => 'required|unique:mahasiswas',
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat' => 'required',
             'kota_id' => 'required',
             'prodi_id' => 'required',
-            'url_foto' => 'required|unique:mahasiswa'
+            'url_foto' => 'required'
         ]);
 
         Mahasiswa::create($val);
@@ -55,7 +55,8 @@ class MahasiswaController extends Controller
      */
     public function show(Mahasiswa $mahasiswa)
     {
-        //
+        // dd($mahasiswa);
+        return view('mahasiswa.show')->with('mahasiswa', $mahasiswa);
     }
 
     /**

@@ -23,7 +23,7 @@
                             @enderror
                         </div>
                         <div class="form-group ">
-                            <label for="singkatan">Singkatan</label>
+                            <label for="fakultas">Fakultas</label>
                             <select name="fakultas_id" id="">
                                 @foreach ($fakultas as $item)
                                     <option value="{{ $item['id'] }}">{{ $item['nama'] }}</option>
