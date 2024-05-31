@@ -12,14 +12,14 @@
                 <p class="card-description">
                     Formulir Tambah Mahasiswa
                 </p>
-                <form class="forms-sample" action="{{  route('mahasiswa.store') }}" method="post">
+                <form class="forms-sample" action="{{  route('mahasiswa.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="npm">NPM</label>
                         <input type="text" name="npm" id="" value="{{old('npm')}}">
                         <div class="form-control">
                             @error('npm')
-                                <span class="text-danger"></span>{{$message}}
+                                <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                         <input type="text" name="nama" id="" value="{{old('nama')}}">
                         <div class="form-control">
                             @error('nama')
-                                <span class="text-danger"></span>{{$message}}
+                                <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <input type="text" name="tempat_lahir" id="" value="{{old('tempat_lahir')}}">
                         <div class="form-control">
                             @error('tempat_lahir')
-                                <span class="text-danger"></span>{{$message}}
+                                <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <input type="date" name="tanggal_lahir" id="" value="{{old('tanggal_lahir')}}">
                         <div class="form-control">
                             @error('tanggal_lahir')
-                                <span class="text-danger"></span>{{$message}}
+                                <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <input type="text" name="alamat" id="" value="{{old('alamat')}}">
                         <div class="form-control">
                             @error('alamat')
-                                <span class="text-danger"></span>{{$message}}
+                                <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
@@ -86,11 +86,11 @@
                             </div>
                         </div>
                     <div class="form-group">
-                        <label for="url_foto">URL Foto</label>
-                        <input type="text" name="url_foto" id="" value="{{old('url_foto')}}">
+                        <label for="url_foto">File Foto</label>
+                        <input type="file" name="url_foto" id="" class="form-control">
                         <div class="form-control">
                             @error('url_foto')
-                                <span class="text-danger"></span>{{$message}}
+                                <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>

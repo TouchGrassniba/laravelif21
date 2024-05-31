@@ -15,10 +15,12 @@
           <table class="table table-hover">
             <thead>
               <tr>
+                <th>Foto</th>
                 <th>NPM</th>
                 <th>Nama Mahasiswa</th> 
                 <th>Tempat Lahir</th>
                 <th>Tanggal Lahir</th>
+                <th>alamat</th>
                 <th>Program Studi</th>
                 <th>Kota</th>
               </tr>
@@ -26,13 +28,21 @@
             <tbody>
               @foreach ($mahasiswa as $item)
         <tr>
+          <td><img src="{{ url('foto/', $item['url_foto']) }}" alt="" class="img-"></td>
           <td>{{  $item['npm'] }} </td>
           <td>{{ $item['nama'] }}</td>
           <td>{{ $item['tempat_lahir'] }}</td>
           <td>{{ $item['tanggal_lahir'] }}</td>
+          <td>{{ $item['alamat'] }}</td>
           <td>{{  $item['prodi']['nama'] }} </td>
           <td>{{ $item['kota']['nama'] }}</td>
-          <td><a href="{{ route('mahasiswa.show', $item['id']) }}" class="btn btn-sm btn-info btn-rounded">Show</a></td>
+          <td><a href="{{ route('mahasiswa.show', $item['id']) }}" class="btn btn-sm btn-info btn-rounded">Show</a>
+          <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="post">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-sm btn-danger btn-rounded btn-fw">Hapus</button>
+          </form>
+          </td>
         </tr>
 
       @endforeach
