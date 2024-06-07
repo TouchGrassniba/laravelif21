@@ -36,11 +36,13 @@
           <td>{{ $item['alamat'] }}</td>
           <td>{{  $item['prodi']['nama'] }} </td>
           <td>{{ $item['kota']['nama'] }}</td>
-          <td><a href="{{ route('mahasiswa.show', $item['id']) }}" class="btn btn-sm btn-info btn-rounded">Show</a>
-          <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="post">
+          <td>
+            <a href="{{ route('mahasiswa.show', $item['id']) }}" class="btn btn-sm btn-info btn-rounded">Show</a>
+            <a href="{{ route('mahasiswa.edit', $item['id']) }}" class="btn btn-sm btn-warning btn-rounded"">Edit</a>
+          <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="post" style="display: inline">
             @method('DELETE')
             @csrf
-            <button type="submit" class="btn btn-sm btn-danger btn-rounded btn-fw">Hapus</button>
+            <button type="submit" class="btn btn-sm btn-danger btn-rounded btn-fw show_confirm" data-nama="{{ $item['nama'] }}">Hapus</button>
           </form>
           </td>
         </tr>
@@ -54,15 +56,5 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if (session('success'))
 
-  <script>
-  Swal.fire({
-    title: "Good Job!",
-    text: "{{ session('success') }}",
-    icon: "success"
-  });
-  </script>
-@endif
 @endsection
