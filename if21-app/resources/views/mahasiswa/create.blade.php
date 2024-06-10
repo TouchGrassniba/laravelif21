@@ -32,6 +32,18 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="form-group ">
+                            <label for="kota_id">Jenis Kelamin</label>
+                            <select name="kota_id" id="">
+                                <option>L</option>
+                                <option>P</option>
+                            </select>
+                            <div class="form-control">
+                                @error('jk')
+                                    {{$message}}
+                                @enderror
+                            </div>
+                        </div>
                     <div class="form-group">
                         <label for="tempat_lahir">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" id="" value="{{old('tempat_lahir')}}">

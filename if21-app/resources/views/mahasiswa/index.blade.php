@@ -17,7 +17,8 @@
               <tr>
                 <th>Foto</th>
                 <th>NPM</th>
-                <th>Nama Mahasiswa</th> 
+                <th>Nama Mahasiswa</th>
+                <th>Jenis Kelamin</th>
                 <th>Tempat Lahir</th>
                 <th>Tanggal Lahir</th>
                 <th>alamat</th>
@@ -31,6 +32,7 @@
           <td><img src="{{ url('foto/', $item['url_foto']) }}" alt="" class="img-"></td>
           <td>{{  $item['npm'] }} </td>
           <td>{{ $item['nama'] }}</td>
+          <td>{{ $item['jk'] }}</td>
           <td>{{ $item['tempat_lahir'] }}</td>
           <td>{{ $item['tanggal_lahir'] }}</td>
           <td>{{ $item['alamat'] }}</td>
