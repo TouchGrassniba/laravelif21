@@ -10,7 +10,9 @@
         <p class="card-description">
           List Data Mahasiswa
         </p>
-        <a href="{{ url('mahasiswa/create') }}" class="btn btn-success btn-rounded btn-fw">Tambah Fakultas</a>
+        @can('create', App\Models\Mahasiswa::class)
+          <a href="{{ url('mahasiswa/create') }}" class="btn btn-success btn-rounded btn-fw">Tambah Fakultas</a>
+        @endcan
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
@@ -40,12 +42,18 @@
           <td>{{ $item['kota']['nama'] }}</td>
           <td>
             <a href="{{ route('mahasiswa.show', $item['id']) }}" class="btn btn-sm btn-info btn-rounded">Show</a>
-            <a href="{{ route('mahasiswa.edit', $item['id']) }}" class="btn btn-sm btn-warning btn-rounded"">Edit</a>
+            @can('update', $item)
+              <a href="{{ route('mahasiswa.edit', $item['id']) }}" class="btn btn-sm btn-warning btn-rounded">Edit</a>
+            @endcan
+          @can('delete', $item)
           <form action="{{ route('mahasiswa.destroy', $item->id) }}" method="post" style="display: inline">
             @method('DELETE')
             @csrf
-            <button type="submit" class="btn btn-sm btn-danger btn-rounded btn-fw show_confirm" data-nama="{{ $item['nama'] }}">Hapus</button>
-          </form>
+            
+              <button type="submit" class="btn btn-sm btn-danger btn-rounded btn-fw show_confirm" data-nama="{{ $item['nama'] }}">Hapus</button>
+            
+            </form>
+          @endcan
           </td>
         </tr>
 

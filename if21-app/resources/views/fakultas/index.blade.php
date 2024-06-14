@@ -10,7 +10,9 @@
         <p class="card-description">
           List Data Fakultas
         </p>
-        <a href="{{ url('fakultas/create') }}" class="btn btn-success btn-rounded btn-fw">Tambah Fakultas</a>
+        @can('create', App\Models\Fakultas::class)
+          <a href="{{ url('fakultas/create') }}" class="btn btn-success btn-rounded btn-fw">Tambah Fakultas</a>
+        @endcan
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>

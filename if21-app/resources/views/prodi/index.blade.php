@@ -10,8 +10,10 @@
                   <p class="card-description">
                     List Data Program Studi
                   </p>
-                  <a href="{{ url('prodi/create') }}" class="btn btn-success btn-rounded btn-fw">Tambah Program Studi</a>
-                  <div class="table-responsive">
+                  @can('create', App\Models\Prodi::class)
+                    <a href="{{ url('prodi/create') }}" class="btn btn-success btn-rounded btn-fw">Tambah Program Studi</a>
+                  @endcan
+                    <div class="table-responsive">
                     <table class="table table-hover">
                       <thead>
                         <tr>
